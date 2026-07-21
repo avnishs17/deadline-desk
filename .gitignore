@@ -4,4 +4,4 @@ data/demo-store.json
 .env
 .env.local
 coverage
-.vscode
+.vscode/*
