@@ -1,0 +1,33 @@
+# Deadline Desk Build Log
+
+- 2026-07-18: Read `docs/return-window-project-architecture.md` and treated it as scope/architecture source of truth.
+- 2026-07-18: Chose local demo workspace persistence (`data/demo-store.json`) instead of auth or hosted database to keep MVP judgeable without accounts.
+- 2026-07-18: Scaffolded Next.js App Router + TypeScript app manually because the repo only contained docs.
+- 2026-07-18: Added Tailwind CSS and shadcn-style local primitives for cards, buttons, inputs, and badges.
+- 2026-07-18: Added isolated AI provider interface with Cerebras OpenAI-compatible adapter, demo fallback, and stub OpenAI verifier adapter for future GPT-5.6 support.
+- 2026-07-18: Added strict Zod extraction schema and normalization so model output is treated as untrusted.
+- 2026-07-18: Implemented rule that unknown return, warranty, or renewal deadlines stay null and appear as missing fields/warnings.
+- 2026-07-18: Added curated sample documents for reliable demo flow without personal receipt data.
+- 2026-07-18: Implemented upload/sample extraction API, purchase save API, and simulated reminder API.
+- 2026-07-18: Built single-screen app flow: upload/select sample, review/edit extracted fields, save verified purchase, dashboard grouped by deadline urgency.
+- 2026-07-18: Added reminder schedule generation for 7 days, 3 days, 1 day, and day-of deadline.
+- 2026-07-18: Added unit tests for date normalization, deadline grouping, reminder generation, and no-invented-deadline behavior.
+- 2026-07-18: Added Vitest alias config so focused tests can import Next-style `@/` paths.
+- 2026-07-18: Fixed month-name date normalization to preserve document calendar dates without local timezone drift.
+- 2026-07-18: Allowed uploads of the repo built-in SVG sample preview files by filename, while keeping general uploads restricted to PDF/JPG/PNG.
+- 2026-07-18: Repositioned product from Return Window to Deadline Desk, a broader document-to-deadline tracker for returns, warranties, renewals, cancellations, and service obligations.
+- 2026-07-18: Updated architecture doc title and positioning language to match the Deadline Desk product name.
+- 2026-07-18: Hardened local JSON store reads/writes and frontend response parsing so demo-store errors return JSON instead of HTML parse failures.
+- 2026-07-18: Added verification report with evidence table, risk metrics, reviewer action plan, and proof-mode JSON.
+- 2026-07-19: Added saved-purchase edit/delete controls, PATCH/DELETE purchase APIs, reminder regeneration on edited deadline dates, and local reminder-log cleanup on delete.
+- 2026-07-19: Replaced browser confirm delete with inline two-step confirmation and hardened saved-card response parsing.
+- 2026-07-19: Added manual purchase/deadline entry, cancellation/service deadline types, and editable deadline type/status controls.
+- 2026-07-19: Added deadline-centric dashboard cards, risk metrics, reminder timelines, ICS export, document preview, demo seed/clear controls, extraction history, and expanded sample library.
+- 2026-07-19: Cleaned crowded UI with responsive wrapping, safer long-text handling, responsive verification rows, and less cramped dashboard cards.
+- 2026-07-19: Renamed calendar export action from `.ics` to Export and added visible exported/missing-date feedback.
+- 2026-07-20: Added command-center overview, redesigned sample library, dashboard filter tabs, and softer workspace background for a more polished POC surface.
+- 2026-07-20: Polished the shell and overview into a command-center workspace with guided workflow steps, stronger metrics, and clearer next-deadline status.
+- 2026-07-20: Removed implementation notes from the UI; separated Dashboard and Add document views; added active-first search, urgency/type/status/date filters, sorting, compact cards, and a less generic visual system.
+- 2026-07-20: Removed curated extraction fixtures and the runtime demo provider. Built-in sample documents now read their asset bytes and use the same Cerebras extraction path as uploads; a missing key is an explicit error.
+- 2026-07-20: Removed the direct sample-purchase seed action as well, so sample data can only enter the dashboard after live extraction and user review.
+- 2026-07-20: Fixed deadline persistence so unrelated null fields no longer create return/warranty/renewal cards; review now shows only deadline types actually detected by the document.
