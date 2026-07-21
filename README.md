@@ -2,6 +2,12 @@
 
 Deadline Desk is an OpenAI Build Week proof of concept that turns messy purchase documents into human-verified deadline reminders for returns, warranties, renewals, cancellations, service contracts, and other purchase obligations.
 
+## Built with Codex and GPT-5.6
+
+Codex with GPT-5.6 was my development partner for Deadline Desk. It helped shape the app architecture, document-extraction workflow, and structured validation schema; implement and debug the Next.js UI, API routes, deadline logic, and tests; and refine the human-review flow so uncertain AI results are shown with evidence instead of being blindly trusted. It also supported deployment preparation, documentation, and the Build Week submission story.
+
+Codex and GPT-5.6 supported the development process. Runtime document extraction uses Cerebras Gemma 4 31B through its OpenAI-compatible API.
+
 ## What It Solves
 
 People do not miss deadlines because they refuse to use calendars. They miss them because the deadline is buried in a receipt, invoice, warranty card, renewal notice, service contract, or order page. Deadline Desk extracts what is present, clearly marks uncertainty, asks the user to verify, then saves the verified deadline record.
@@ -116,10 +122,6 @@ npm test
 ```
 
 Focused tests cover date normalization, deadline grouping, reminder generation, and preserving unknown deadlines.
-
-## Build Week Notes
-
-Runtime extraction uses Cerebras Gemma 4 31B through an OpenAI-compatible API adapter. Codex with GPT-5.6 helped build the app: it supported architecture, schema and prompt design, validation strategy, implementation, debugging, testing, and submission preparation. The app keeps AI output untrusted until it is validated and normalized with Zod.
 
 ## Known Limitations
 
